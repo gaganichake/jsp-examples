@@ -1,0 +1,119 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm6.html">[Prev]</a> <a href="syntaxref.fm8.html">[Next]</a>
+<hr><br>
+ 
+<a name="15653"> </a>
+<h2 align="center"> Page Directive</h2>
+<p><a name="15654"> </a>
+Defines attributes that apply to an entire JSP page.
+</p><a name="15655"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;%@ page  
+	[ language="</code><strong>java</strong><code>" ]
+</code>	<code>[ extends="</code><em>package</em>.<em>class</em><code>" ]</code> 
+	<code>[ import= "{ </code><em>package</em>.<em>class</em> | <em>package</em>.<em>*</em><code> }, ..."</code> ]
+	<code>[ session="</code><strong>true</strong><code>|false" ]
+</code>	<code>[ buffer="none|</code><strong>8kb</strong>|<em>size</em><code>kb" ]
+</code>	<code>[ autoFlush="</code><strong>true</strong><code>|false" ] 
+</code>	<code>[ isThreadSafe="</code><strong>true</strong><code>|false" ]
+</code>	<code>[ info="</code><em>text</em><code>" ]
+</code>	<code>[ errorPage="</code><em>relativeURL</em><code>" ]
+</code>	<code>[ contentType="</code><em>mimeType</em><code> [ ;charset=</code><em>characterSet</em><code> ]" | 
+</code><code>		</code><strong>"text/html ; charset=ISO-8859-1"</strong><code> ]
+</code>	<code>[ isErrorPage="true|</code><strong>false</strong><code>" ]
+%&gt;
+</code></pre></blockquote><a name="16398"> </a>
+<h4> Examples</h4>
+<blockquote><pre>&lt;%@ page import="java.util.*, java.lang.*" %&gt;
+&lt;%@ page buffer="5kb" autoFlush="false" %&gt;
+&lt;%@ page errorPage="error.jsp" %&gt;
+</pre></blockquote><a name="15659"> </a>
+<h4> Description</h4>
+<p><a name="15660"> </a>
+The <code>page</code> directive applies to an entire JSP file and any static files it includes with the <a href="syntaxref.fm6.html#8772">Include Directive</a> or <code><a href="syntaxref.fm11.html#8828">&lt;jsp:include&gt;</a></code>, which together are called a translation unit. Note that the <code>page</code> directive does not apply to any dynamic included files; see <code><a href="syntaxref.fm11.html#8828">&lt;jsp:include&gt;</a></code> for more information.
+</p><p><a name="15661"> </a>
+You can use the <code>page</code> directive more than once in a translation unit, but you can only use each attribute, except <code>import</code>, once. (Because the <code>import</code> attribute is similar to the <code>import</code> statement in the Java programming language, you can use it more than once, just as you would use multiple <code>import</code> commands in the Java programming language) No matter where you position the <code>page</code>
+ directive in the JSP file or included files, it applies to the entire 
+translation unit. However, it is usually good programming style to place
+ it at the top of the file.
+</p><a name="15662"> </a>
+<h4> Attributes</h4>
+<ul><a name="15663"> </a>
+<li><code>language="</code><strong>java</strong><code>"</code>
+<p><a name="15664"> </a>
+The scripting language used in scriptlets, declarations, and expressions
+ in the JSP file and any included files. In JSP 1.0, the only allowed 
+value is <code>java</code>. 
+</p><a name="15665"> </a>
+</li><li><code>extends="</code><em>package.class</em><code>"</code>
+<p><a name="15666"> </a>
+The fully qualified name of the superclass of the Java class file this 
+JSP file will be compiled to. Use this attribute cautiously, as it can 
+limit the JSP engine's ability to provide a specialized superclass that 
+improves the quality of the compiled file.
+</p><a name="16862"> </a>
+</li><li><code>import= "{ </code><em>package.class</em><code> | </code><em>package.*</em><code> }, ..."</code>
+<p><a name="15668"> </a>
+A comma-separated list of one or more packages that the JSP file should 
+import. The packages (and their classes) are available to scriptlets, 
+expressions, declarations, and tags within the JSP file. You must place 
+the <code>import</code> attribute <em>before</em> the tag that calls the
+ imported class. If you want to import more than one package, you can 
+specify a comma-separated list after <code>import</code> or you can use <code>import</code> more than once in a JSP file.
+</p><a name="15669"> </a>
+</li><li><code>session="</code><strong>true</strong><code>|false"</code>
+<p><a name="16906"> </a>
+Whether the client must join an HTTP session in order to use the JSP page. If the value is <code>true</code>, the <code>session</code> object refers to the current or new session. If the value is <code>false</code>, you cannot use the <code>session</code> object in the JSP file. The default value is <code>true</code>.
+</p><a name="15671"> </a>
+</li><li><code>buffer="none|</code><strong><code>8kb</code></strong>|<em>size</em><code>kb"</code>
+<p><a name="15672"> </a>
+The buffer size in kilobytes used by the <code>out</code> object to handle output sent from the compiled JSP page to the client Web browser. The default value is <code>8kb</code>. If you specify a buffer size, the output is buffered with at least the size you specified.
+</p><a name="15673"> </a>
+</li><li><code>autoFlush="</code><strong>true</strong><code>|false"</code>
+<p><a name="15674"> </a>
+Whether the buffered output should be flushed automatically when the buffer is full. If <code>true</code> (the default value), means that the buffer will be flushed. If <code>false</code>, means that an exception will be raised when the buffer overflows. You cannot set <code>autoFlush</code> to <code>false</code> when the value of <code>buffer</code> is <code>none</code>.
+</p><a name="15675"> </a>
+</li><li><code>isThreadSafe="</code><strong>true</strong><code>|false"</code>
+<p><a name="15676"> </a>
+Whether thread safety is implemented in the JSP file. The default value is <code>true</code>, which means that the JSP engine can send multiple requests to the page concurrently. If you use <code>true</code> (the default value), multiple threads can access the JSP page, and you must synchronize them. If you use <code>false</code>, the JSP engine sends client requests one at a time to the JSP page. 
+</p><a name="15677"> </a>
+</li><li><code>info="</code><em>text</em><code>"</code>
+<p><a name="15678"> </a>
+A text string that is incorporated verbatim in the compiled JSP page. You can later retrieve the string with the <code>Servlet.getServletInfo()</code> method.
+</p><a name="15679"> </a>
+</li><li><code>errorPage="</code><em>relativeURL</em><code>"</code>
+<p><a name="15680"> </a>
+A pathname to a JSP file that this JSP file sends exceptions to. If the 
+pathname begins with a /, the path is relative to the JSP application's 
+document root directory and is resolved by the Web server. If not, the 
+pathname is relative to the current JSP file.
+</p><a name="15681"> </a>
+</li><li><code>isErrorPage="true|</code><strong>false</strong><code>"</code>
+<p><a name="15682"> </a>
+Whether the JSP file displays an error page. If <code>true</code>, you can use the <code>exception</code> object, which contains a reference to the thrown exception, in the JSP file. If <code>false</code> (the default value), means that you cannot use the <code>exception</code> object in the JSP file.
+</p><a name="15683"> </a>
+</li><li><code>contentType="</code><em>mimeType</em><code> [ ;charset=</code><em>characterSet</em><code> ]" |           "</code><strong>text/html;charset=ISO-8859-1</strong><code>"</code>
+<p><a name="15684"> </a>
+The MIME type and character encoding the JSP file uses for the response 
+it sends to the client. You can use any MIME type or character set that 
+are valid for the JSP engine. The default MIME type is <code>text/html</code>, and the default character set is <code>ISO-8859-1</code>.
+</p></li></ul>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm6.html">[Prev]</a> <a href="syntaxref.fm8.html">[Next]</a>
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm7_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm7_files/metrics_group1.js"></script>
+
+</body></html>

@@ -1,0 +1,75 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm2.html">[Prev]</a> <a href="syntaxref.fm4.html">[Next]</a>
+<hr><br>
+ 
+<a name="10983"> </a>
+<h2 align="center"> Declaration</h2>
+<p><a name="10984"> </a>
+Declares a variable or method valid in the page scripting language.
+</p><a name="10985"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;%! </code><em>declarations</em><code> %&gt;
+</code></pre></blockquote><a name="10987"> </a>
+<h4> Examples</h4>
+<blockquote><pre>&lt;%! int i = 0; %&gt;
+&lt;%! int a, b, c; %&gt;
+&lt;%! Circle a = new Circle(2.0); %&gt;
+</pre></blockquote><a name="10989"> </a>
+<h4> Description</h4>
+<p><a name="16594"> </a>
+A declaration declares one or more variables or methods for use later in the JSP source file. 
+</p><p><a name="15971"> </a>
+A declaration must contain at least one complete declarative statement. 
+You can declare any number of variables or methods within one 
+declaration tag, as long as they are separated by semicolons. The 
+declaration must be valid in the scripting language used in the JSP 
+file. In JSP 1.0, you must use the JavaTM programming language for 
+scripting, and declarations must conform to the <em>Java Language Specification</em>.
+</p><p><a name="16636"> </a>
+When you use the Java programming language for scripting, remember these rules:
+</p><ul><a name="16640"> </a>
+<li>You must end the declaration with a semicolon (the same rule as for a <a href="syntaxref.fm5.html#10996">Scriptlet</a>, but the opposite of an <a href="syntaxref.fm4.html#11258">Expression</a>). 
+<a name="16644"> </a>
+</li><li>You must declare the variable or method <em>before</em> you use it in the JSP file.
+<a name="16645"> </a>
+</li><li>You can already use variables or methods that are declared in packages imported by the <a href="syntaxref.fm7.html#15653">Page Directive</a>, so there is no need to declare them.
+</li></ul><p><a name="15972"> </a>
+In general, a declaration has page scope, so it is valid in scriptlets, 
+expressions, and other declarations within the same JSP source file. But
+ if a JSP file includes other files, the rules of scope become a bit 
+trickier. The rules of scope for declarations are described below:
+</p><ul><a name="15907"> </a>
+<li>If the JSP source file does not include any other files, declarations have page scope.
+<a name="16609"> </a>
+</li><li>If the JSP source file includes a dynamic file with <code><a href="syntaxref.fm11.html#8828">&lt;jsp:include&gt;</a></code>, declarations have page scope.
+<a name="16613"> </a>
+</li><li>If the JSP source file includes static files with <code><a href="syntaxref.fm11.html#8828">&lt;jsp:include&gt;</a></code> or the <a href="syntaxref.fm6.html#8772">Include Directive</a>,
+ declarations have translation unit scope. A translation unit is the JSP
+ source file plus all of its static include files, but without any 
+dynamic include files.
+</li></ul><a name="10991"> </a>
+<h4> See Also</h4>
+<ul><a name="10992"> </a>
+<li><a href="syntaxref.fm5.html#10996">Scriptlet</a>
+<a name="10993"> </a>
+</li><li><a href="syntaxref.fm4.html#11258">Expression</a>
+</li></ul>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm2.html">[Prev]</a> <a href="syntaxref.fm4.html">[Next]</a>
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm3_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm3_files/metrics_group1.js"></script>
+
+</body></html>

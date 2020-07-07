@@ -1,0 +1,129 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm13.html">[Prev]</a> [Next]
+<hr><br>
+ 
+<a name="8865"> </a>
+<h2 align="center"> &lt;jsp:useBean&gt;</h2>
+<p><a name="9807"> </a>
+Locates or instantiates a Bean with a specific name and scope.
+</p><a name="9348"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;jsp:useBean 
+</code>		<code>id="</code><em>beanInstanceName</em><code>"</code> 
+		<code>scope="</code><strong>page</strong><code>|request|session|application"
+</code>	<code>{	class="</code><em>package.class</em><code>" |</code> 
+		<code>type="</code><em>package.class</em><code>" |</code> 
+		<code>class="</code><em>package.class</em><code>" type="</code><em>package.class</em><code>" |
+</code>		<code>beanName="{ </code><em>package.class</em><em> </em><code>|</code><em> </em><code>&lt;%= </code><em>expression</em> <code>%&gt; }" type="</code><em>package.class</em>"  
+	}
+	{ 	<code>/&gt; |</code>  
+		<code>&gt; </code><em>other tags</em><code> &lt;/jsp:useBean&gt;</code>  
+<code>	}
+</code></pre></blockquote><a name="16474"> </a>
+<h4> Examples</h4>
+<blockquote><pre>&lt;jsp:useBean id="cart" scope="session" class="session.Carts" /&gt;
+&lt;jsp:setProperty name="cart" property="*" /&gt;
+
+&lt;jsp:useBean id="checking" scope="session" class="bank.Checking" &gt;
+&lt;jsp:setProperty name="checking" property="balance" value="0.0" /&gt;
+&lt;/jsp:useBean&gt;
+</pre></blockquote><a name="9356"> </a>
+<h4> Description</h4>
+<p><a name="11782"> </a>
+The <code>&lt;jsp:useBean&gt;</code> tag attempts to locates a Bean, or 
+if the Bean does not exist, instantiates it from a class or serialized 
+template. To locate or instantiate the Bean, <code>&lt;jsp:useBean&gt;</code> takes the following steps, in this order:
+</p><ol>
+<a name="9817"> </a>
+<li>Attempts to locate a Bean with the scope and name you specify.
+<a name="9838"> </a>
+</li><li>Defines an object reference variable with the name you specify.
+<a name="9839"> </a>
+</li><li>If it finds the Bean, stores a reference to it in the variable. If you specified <code>type</code>, gives the Bean that type.
+<a name="9840"> </a>
+</li><li>If it does not find the Bean, instantiates it from the class 
+you specify, storing a reference to it in the new variable. If the class
+ name represents a serialized template, the Bean is instantiated by <code>java.beans.Beans.instantiate</code>.
+<a name="9843"> </a>
+</li><li>If it has <em>instantiated</em> (rather than located) the Bean, and if it has body tags (between <code>&lt;jsp:useBean&gt;</code> and <code>&lt;/jsp:useBean&gt;</code>), executes the body tags.
+</li></ol>
+<p><a name="18117"> </a>
+The body of a <code>&lt;jsp:useBean&gt;</code> tag often contains a <code>&lt;jsp:setProperty&gt;</code> tag that defines property values in the object. As described in <a href="syntaxref.fm14.html#9843">Step  5</a>, the body tags are only processed if <code>&lt;jsp:useBean&gt;</code> instantiates the Bean. If the Bean already exists and <code>&lt;jsp:useBean&gt;</code> locates it, the body tags have no effect.
+</p><p><a name="15594"> </a>
+In JSP 1.0, <code>&lt;jsp:useBean&gt;</code> works with JavaBeans 
+components, but not with enterprise beans. If you want to use enterprise
+ beans, you can write a JSP file that constructs a JavaBean component, 
+and have the JavaBean component call the enterprise bean.
+</p><a name="10963"> </a>
+<h4> Attributes and Usage</h4>
+<ul><a name="10964"> </a>
+<li><code>id="</code><em>beanInstanceName</em><code>"</code>
+<p><a name="10965"> </a>
+Names a variable that identifies the Bean in the scope you specify. You 
+can use the variable name in expressions or scriptlets in the same JSP 
+file. 
+</p><p><a name="18001"> </a>
+The name is case sensitive and must conform to the naming conventions of
+ the page scripting language (if you use the Java programming language, 
+the conventions in the <em>Java Language Specification</em>). If the Bean has already been created by another <code>&lt;jsp:useBean&gt;</code> tag, the value of <code>id</code> must match the value of <code>id</code> used in the original <code>&lt;jsp:useBean&gt;</code> tag. 
+</p><a name="10966"> </a>
+</li><li><code>scope="</code><strong>page</strong><code>|request|session|application"</code>
+<p><a name="10967"> </a>
+Defines a scope in which the Bean exists and the variable named in <code>id</code> is available. The default value is <code>page</code>.
+</p><a name="10968"> </a>
+</li><li><code>class="</code><em>package.class</em><code>"</code>
+<p><a name="10969"> </a>
+Instantiates a Bean from a class, using the <code>new</code> keyword and
+ the class constructor. The class must not be abstract and must have a 
+public, no-argument constructor. The package and class name are case 
+sensitive.
+</p><a name="18019"> </a>
+</li><li><code>class="</code><em>package.class</em><code>" type="</code><em>package.class</em><code>"</code>
+<p><a name="18081"> </a>
+Instantiates a Bean from a class, using the <code>new</code> keyword and the class constructor, and gives the Bean the type you specify in <code>type</code>. The class you specify in <code>class</code> must not be abstract and must have a public, no-argument constructor. The package and class names you use with both <code>class</code> and <code>type</code> are case sensitive.
+</p><p><a name="18098"> </a>
+The value of <code>type</code> can be the same as <code>class</code>, a superclass of <code>class</code>, or an interface implemented by <code>class</code>. 
+</p><a name="15804"> </a>
+</li><li><code>beanName="{ </code><em>package.class</em><code> | &lt;%= </code><em>expression</em><code> %&gt; }" type="</code><em>package.class</em><code>"</code>
+<p><a name="15805"> </a>
+Instantiates a Bean from either a class or a serialized template, using the <code>java.beans.Beans.instantiate</code> method, and gives the Bean the type specified in <code>type</code>. <code>Beans.instantiate</code> checks whether a name represents a class or a serialized template. If the Bean is a serialized template, <code>Beans.instantiate</code> reads the serialized form (with a name like <em>package.class.ser</em>) using a class loader. For more information, see the <em>JavaBeans API Specification</em>.
+</p><p><a name="18056"> </a>
+The value of <code>beanName</code> is either a package and class name or an <a href="syntaxref.fm4.html#11258">Expression</a> that evaluates to a package and class name, and is passed to <code>Beans.instantiate</code>. The value of <code>type</code> is a package and class name. The value of <code>type</code> can be the same as <code>beanName</code>, a superclass of <code>beanName</code>, or an interface implemented by <code>beanName</code>.
+</p><p><a name="18181"> </a>
+With both <code>beanName</code> and <code>type</code>, the package and class names are case sensitive.
+</p><a name="18092"> </a>
+</li><li><code>type="</code><em>package.class</em><code>"</code>
+<p><a name="18093"> </a>
+If the Bean already exists in the specified scope, gives the Bean the type you specify. If you use <code>type</code> without <code>class</code> or <code>beanName</code>, no Bean is instantiated. The package and class name are case sensitive.
+</p></li></ul><a name="9359"> </a>
+<h4> See Also</h4>
+<ul><a name="9360"> </a>
+<li><code><a href="syntaxref.fm13.html#8856">&lt;jsp:setProperty&gt;</a></code>
+<a name="9361"> </a>
+</li><li><code><a href="syntaxref.fm10.html#8820">&lt;jsp:getProperty&gt;</a></code>
+<a name="18068"> </a>
+</li><li>Javadoc API reference for <code>java.beans.Beans</code>
+<a name="18111"> </a>
+</li><li><em>JavaBeans API Specification</em>
+</li></ul><p><a name="7941"> </a>
+
+</p>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm13.html">[Prev]</a> [Next]
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm14_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm14_files/metrics_group1.js"></script>
+
+</body></html>

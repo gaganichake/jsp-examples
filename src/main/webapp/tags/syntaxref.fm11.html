@@ -1,0 +1,68 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm10.html">[Prev]</a> <a href="syntaxref.fm12.html">[Next]</a>
+<hr><br>
+ 
+<a name="8828"> </a>
+<h2 align="center"> &lt;jsp:include&gt;</h2>
+<p><a name="10117"> </a>
+Includes either a static or dynamic file in a JSP file.
+</p><a name="9217"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;jsp:include page="</code>{ <em>relativeURL</em><code> | &lt;%=</code><em> </em><em>expression</em><code> %&gt;}" flush="true" /&gt;
+</code></pre></blockquote><a name="9221"> </a>
+<h4> Examples</h4>
+<blockquote><pre>&lt;jsp:include page="scripts/login.jsp" /&gt;
+&lt;jsp:include page="copyright.html" /&gt;
+&lt;jsp:include page="/index.html" /&gt;
+</pre></blockquote><a name="9225"> </a>
+<h4> Description</h4>
+<p><a name="9226"> </a>
+The <code>&lt;jsp:include&gt;</code> tag allows you to include either a 
+static or dynamic file. A static file is parsed and its content included
+ in the calling JSP page. A dynamic file acts on the request and sends 
+back a result that is included in the JSP page.
+</p><p><a name="16143"> </a>
+You cannot always determine from a pathname if a file is static or dynamic. For example, a pathname like <em>http://server:8080/index.html</em> might map to a dynamic servlet by using a Web server alias. The <code>&lt;jsp:include&gt;</code> tag handles both types of files, so it is convenient to use when you don't know whether the file is static or dynamic.
+</p><p><a name="11402"> </a>
+When the include action is finished, the JSP engine continues processing the remainder of the JSP file.
+</p><a name="10929"> </a>
+<h4> Attributes</h4>
+<ul><a name="10930"> </a>
+<li><code>page="{ </code><em>relativeURL</em><code> | &lt;%= </code><em>expression</em><code> %&gt;}"</code>
+<p><a name="11213"> </a>
+The relative URL to the file to be included, or an expression that evaluates to a <code>String</code> equivalent to the relative URL.
+</p><p><a name="17155"> </a>
+The relative URL looks like a pathname-it cannot contain a protocol 
+name, port number, or domain name. The URL can be absolute or relative 
+to the current JSP file. If it is absolute (beginning with a /), the 
+pathname is resolved by your Web or application server.
+</p><a name="17145"> </a>
+</li><li><code>flush="true"</code>
+<p><a name="17150"> </a>
+In JSP 1.0, you must include <code>flush="true"</code>, as it is not a default value.
+</p></li></ul><a name="9228"> </a>
+<h4> See Also</h4>
+<ul><a name="9229"> </a>
+<li><a href="syntaxref.fm6.html#8772">Include Directive</a>
+<a name="9230"> </a>
+</li><li><code><a href="syntaxref.fm9.html#15694">&lt;jsp:forward&gt;</a></code>
+</li></ul>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm10.html">[Prev]</a> <a href="syntaxref.fm12.html">[Next]</a>
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm11_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm11_files/metrics_group1.js"></script>
+
+</body></html>

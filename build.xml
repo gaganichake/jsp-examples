@@ -1,0 +1,28 @@
+<project name="jsp-example" basedir="." default="clean-build">
+    <property name="src.dir"     value="src"/>
+    <property name="build.dir"   value="build"/>
+	<property name="web.dir"     value="WebContent"/>
+    <property name="classes.dir" value="${web.dir}/WEB-INF/classes"/>
+	<property name="lib.dir"     value="C:\Program Files (x86)\Apache Software Foundation\Tomcat 6.0\lib"/>
+	
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+    	
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
+    </target>
+
+    <target name="war" depends="compile">
+        <mkdir dir="${build.dir}"/>
+        <jar destfile="${build.dir}/${ant.project.name}.war" basedir="${web.dir}"/>
+    </target>
+
+    <target name="clean-build" depends="clean,war"/>
+  
+</project>

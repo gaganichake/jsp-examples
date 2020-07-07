@@ -1,0 +1,101 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm5.html">[Prev]</a> <a href="syntaxref.fm7.html">[Next]</a>
+<hr><br>
+ 
+<a name="8772"> </a>
+<h2 align="center"> Include Directive</h2>
+<p><a name="8777"> </a>
+Includes a file of text or code in the JSP source file.
+</p><a name="8778"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;%@ include file="</code><em>relativeURL</em><code>" %&gt;
+</code></pre></blockquote><a name="16745"> </a>
+
+<h4> Examples</h4>
+<blockquote><pre><b><i>include.jsp:</i></b>
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;An Include Test&lt;/title&gt;&lt;/head&gt;
+&lt;body bgcolor="white"&gt;
+&lt;font color="blue"&gt;
+The current date and time are
+&lt;%@ include file="date.jsp" %&gt;
+&lt;/font&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+<p>
+<b><i>date.jsp:</i></b>
+&lt;%@ page import="java.util.*" %&gt;
+&lt;%= (new java.util.Date() ).toLocaleString() %&gt;
+Displays in the page:
+The current date and time are
+Aug 30, 1999 2:38:40
+</p></pre></blockquote><a name="16747"> </a>
+
+<h4> Description</h4>
+<p><a name="10550"> </a>
+The <code>include</code> directive inserts a file of text or code in a 
+JSP file at translation time, when the JSP file is compiled. The include
+ process is <strong>static</strong>.<strong> </strong>A static include 
+means that the text of the included file is added to the JSP file. The 
+included file can be a JSP file, HTML file, or text file. If the 
+included file is a JSP file, its JSP tags are parsed and their results 
+included (along with any other text) in the JSP file. 
+</p><p><a name="16735"> </a>
+You can only use <code>include</code> to include static files. This means that the parsed result of the included file is added to the JSP file where the <code>include</code>
+ directive is placed. Once the included file is parsed and included, 
+processing resumes with the next line of the calling JSP file.
+</p><p><a name="16847"> </a>
+The included file can be an HTML file, a JSP file, a text file, or a 
+code file written in the Java programming language. Be careful, though, 
+that the included file does not contain <code>&lt;html&gt;</code>, <code>&lt;/html&gt;</code>, <code>&lt;body&gt;</code>, or <code>&lt;/body&gt;</code>
+ tags. Because the entire content of the included file is added at that 
+location in the JSP file, these tags would conflict with similar tags in
+ the JSP file.
+</p><p><a name="10671"> </a>
+Some of the behaviors of the <code>include</code> directive depend on the JSP engine, for example:
+</p><ul><a name="16820"> </a>
+<li>The included file may be open and available to all requests, or it may have security restrictions.
+<a name="16822"> </a>
+</li><li>The JSP page may be recompiled if the included file changes.
+</li></ul><a name="10538"> </a>
+<h4> Attributes</h4>
+<ul><a name="16836"> </a>
+<li><code>file="</code><em>relativeURL</em><code>"</code>
+<p><a name="16113"> </a>
+The pathname to the included file, which can contain any text or code that is valid in a JSP file. The value of <code>file</code> is always a relative URL. Simply put, a relative URL is just the path segment of an URL, without the protocol, port, or domain:
+</p><p><a name="10541"> </a>
+<code>"error.jsp""/templates/onlinestore.html""/beans/calendar.jsp"</code>
+</p><p><a name="10584"> </a>
+If the relative URL starts with /, the path is relative to the JSP application's context, which is a <code>javax.servlet.ServletContext</code> object that is in turn stored in the <code>application</code> object. If the relative URL starts with a directory or file name, the path is relative to the JSP file.
+</p></li></ul><a name="10636"> </a>
+<h4> Tip</h4>
+<ul><a name="10637"> </a>
+<li>If you are including a text file and do not want the text to be 
+displayed in the JSP page, place comment tags around the text in the 
+text file.
+</li></ul><a name="8975"> </a>
+<h4> See Also</h4>
+<ul><a name="8979"> </a>
+<li><code><a href="syntaxref.fm11.html#8828">&lt;jsp:include&gt;</a></code>
+<a name="8999"> </a>
+</li><li><code><a href="syntaxref.fm9.html#15694">&lt;jsp:forward&gt;</a></code>
+</li></ul>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm5.html">[Prev]</a> <a href="syntaxref.fm7.html">[Next]</a>
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm6_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm6_files/metrics_group1.js"></script>
+
+</body></html>

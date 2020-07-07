@@ -1,0 +1,61 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm8.html">[Prev]</a> <a href="syntaxref.fm10.html">[Next]</a>
+<hr><br>
+ 
+<a name="15694"> </a>
+<h2 align="center"> &lt;jsp:forward&gt;</h2>
+<p><a name="15695"> </a>
+Forwards a client request to an HTML file, JSP file, or servlet for processing.
+</p><a name="15696"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;jsp:forward page="{ </code><em>relativeURL</em><code> | &lt;%= </code><em>expression</em><code> %&gt; }" /&gt;
+</code></pre></blockquote><a name="15698"> </a>
+<h4> Examples</h4>
+<blockquote><pre>&lt;jsp:forward page="/servlet/login" /&gt;
+</pre></blockquote><a name="17081"> </a>
+<h4> Description</h4>
+<p><a name="15701"> </a>
+The <code>&lt;jsp:forward&gt;</code> tag forwards the <code>request</code>
+ object sent to the JSP file to another file for processing. The JSP 
+engine does not process any of the remainder of the JSP file.
+</p><p><a name="17086"> </a>
+If the output from the compiled JSP file is buffered (by using a <code>page</code> directive with the default value or an explicit size set for <code>buffer</code>), the buffer is cleared before the request is forwarded. If the output is not buffered (if you used a page directive with <code>buffer=none</code>), and if anything has been written to the buffer, using <code>&lt;jsp:forward&gt;</code> results in an <code>IllegalStateException</code>.
+</p><a name="15703"> </a>
+<h4> Attributes</h4>
+<ul><a name="15704"> </a>
+<li><code>page="{ </code><em>relativeURL</em><code> | &lt;%= </code><em>expression</em><code> %&gt; }"</code>
+<p><a name="15705"> </a>
+A <code>String</code> or an expression representing the relative URL of the file to which you are forwarding the request.
+</p><p><a name="17094"> </a>
+The relative URL looks like a path-it cannot contain a protocol name, 
+port number, or domain name. The URL can be absolute or relative to the 
+current JSP file. If it is absolute (beginning with a /), the path is 
+resolved by your Web or application server. 
+</p></li></ul><a name="15708"> </a>
+<h4> See Also</h4>
+<ul><a name="15712"> </a>
+<li><a href="syntaxref.fm6.html#8772">Include Directive</a>
+<a name="15716"> </a>
+</li><li><code><a href="syntaxref.fm11.html#8828">&lt;jsp:include&gt;</a></code>
+<a name="15720"> </a>
+</li><li><a href="syntaxref.fm7.html#15653">Page Directive</a>
+</li></ul>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm8.html">[Prev]</a> <a href="syntaxref.fm10.html">[Next]</a>
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm9_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm9_files/metrics_group1.js"></script>
+
+</body></html>

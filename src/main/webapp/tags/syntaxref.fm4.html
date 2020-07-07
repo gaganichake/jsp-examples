@@ -1,0 +1,57 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm3.html">[Prev]</a> <a href="syntaxref.fm5.html">[Next]</a>
+<hr><br>
+ 
+<a name="11258"> </a>
+<h2 align="center"> Expression</h2>
+<p><a name="11259"> </a>
+Contains an expression valid in the page scripting language.
+</p><a name="11260"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;%= </code><em>expression</em><code> %&gt;
+</code></pre></blockquote><a name="11262"> </a>
+<h4> Examples</h4>
+<blockquote><pre>The map file has &lt;font color="blue"&gt;<strong>&lt;%= map.getCount() %&gt;</strong>&lt;/font&gt; 
+entries.
+Good guess, but nope. Try &lt;b&gt;<strong>&lt;%= numguess.getHint() %&gt;</strong>&lt;/b&gt;.
+</pre></blockquote><a name="11264"> </a>
+<h4> Description</h4>
+<p><a name="15961"> </a>
+An expression tag contains a scripting language expression that is evaluated, converted to a <code>String</code>,
+ and inserted where the expression appears in the JSP file. Because the 
+value of an expression is converted to a String, you can use an 
+expression within text in a JSP file.
+</p><p><a name="16344"> </a>
+When you use the Java language for scripting, remember these points:
+</p><ul><a name="15933"> </a>
+<li>You cannot use a semicolon to end an expression (however, the same expression within scriptlet tags requires the semicolon; see <a href="syntaxref.fm5.html#10996">Scriptlet</a>).
+<a name="15934"> </a>
+</li><li>The expression tag can contain any expression that is valid according to the <em>Java Language Specification</em>.
+</li></ul><p><a name="11281"> </a>
+You can sometimes use expressions as attribute values in JSP tags (see the <em>JavaServer Pages</em>TM<em> Syntax Card</em>). If an expression has more than one part, the parts are evaluated in left-to-right order as they appear in the tag.
+</p><a name="11268"> </a>
+<h4> See Also</h4>
+<ul><a name="11272"> </a>
+<li><a href="syntaxref.fm3.html#10983">Declaration</a>
+<a name="11276"> </a>
+</li><li><a href="syntaxref.fm5.html#10996">Scriptlet</a>
+</li></ul>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm3.html">[Prev]</a> <a href="syntaxref.fm5.html">[Next]</a>
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm4_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm4_files/metrics_group1.js"></script>
+
+</body></html>

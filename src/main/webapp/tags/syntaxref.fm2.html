@@ -1,0 +1,55 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm1.html">[Prev]</a> <a href="syntaxref.fm3.html">[Next]</a>
+<hr><br>
+ 
+<a name="8764"> </a>
+<h2 align="center"> Hidden Comment</h2>
+<p><a name="8769"> </a>
+Documents the JSP page but is not sent to the client.
+</p><a name="8910"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;%--</code> <em>comment</em> <code>--%&gt;
+</code></pre></blockquote><a name="8919"> </a>
+<h4> Examples</h4>
+<blockquote><pre>&lt;%@ page language="java" %&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;A Comment Test&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;A Test of Comments&lt;/h2&gt;
+&lt;%-- This comment will not be visible in the page source --%&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></blockquote><a name="16572"> </a>
+<h4> Description</h4>
+<p><a name="8918"> </a>
+The JSP engine ignores a hidden comment, and does not process any code 
+within hidden comment tags. A hidden comment is not sent to the client, 
+either in the displayed JSP page or the HTML page source. The hidden 
+comment is useful when you want to hide or "comment out" part of your 
+JSP page.
+</p><p><a name="10426"> </a>
+You can use any characters in the body of the comment except the closing <code>--%&gt;</code> combination. If you need to use <code>--%&gt;</code> in your comment, you can escape it by typing <code>--%\&gt;</code>.
+</p><a name="8917"> </a>
+<h4> See Also</h4>
+<ul><a name="9007"> </a>
+<li><a href="syntaxref.fm1.html#15841">Output Comment</a>
+</li></ul>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm1.html">[Prev]</a> <a href="syntaxref.fm3.html">[Next]</a>
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm2_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm2_files/metrics_group1.js"></script>
+
+</body></html>

@@ -1,0 +1,68 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm9.html">[Prev]</a> <a href="syntaxref.fm11.html">[Next]</a>
+<hr><br>
+ 
+<a name="8820"> </a>
+<h2 align="center"> &lt;jsp:getProperty&gt;</h2>
+<p><a name="9771"> </a>
+Gets the value of a Bean property so that you can display it in a result page.
+</p><a name="9190"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;jsp:getProperty name="</code><em>beanInstanceName</em><code>"  property="</code><em>propertyName</em><code>" /&gt;
+</code></pre></blockquote><a name="9194"> </a>
+<h4> Examples</h4>
+<blockquote><pre>&lt;jsp:useBean id="calendar" scope="page" class="employee.Calendar" /&gt;
+&lt;h2&gt;
+Calendar of <strong>&lt;jsp:getProperty name="calendar" property="username" /&gt;</strong> 
+&lt;/h2&gt;
+</pre></blockquote><a name="9198"> </a>
+<h4> Description</h4>
+<p><a name="9199"> </a>
+You must create or locate a Bean instance with <code>&lt;jsp:useBean&gt;</code> <em>before</em> you use <code>&lt;jsp:getProperty&gt;</code>.
+</p><p><a name="16064"> </a>
+The <code>&lt;jsp:getProperty&gt;</code> tag gets a Bean property value using the property's <code>get</code> method, converts the value of a Bean property to a <code>String</code> and stores it in the <code>out</code> object. 
+</p><p><a name="17115"> </a>
+In JSP 1.0, <code>&lt;jsp:getProperty&gt;</code> has a few limitations you should be aware of:
+</p><ul><a name="17116"> </a>
+<li>You cannot use <code>&lt;jsp:getProperty&gt;</code> to retrieve the values of an indexed property.
+<a name="16053"> </a>
+</li><li>You can use <code>&lt;jsp:getProperty&gt;</code> with JavaBeans
+ components, but not with enterprise beans. You can get around this 
+limitation by writing a JSP application in which a JSP file gets values 
+from a Bean, and the Bean in turns calls an enterprise bean.
+</li></ul><a name="15747"> </a>
+<h4> Attributes</h4>
+<ul><a name="15748"> </a>
+<li><code>name="</code><em>beanInstanceName</em><code>"</code>
+<p><a name="15749"> </a>
+The name of the Bean instance as declared in a <code>&lt;jsp:useBean&gt;</code> tag.
+</p><a name="10919"> </a>
+</li><li><code>property="</code><em>propertyName</em><code>"</code>
+<p><a name="10920"> </a>
+The name of the Bean property whose value you want to display.
+</p></li></ul><a name="9201"> </a>
+<h4> See Also</h4>
+<ul><a name="9202"> </a>
+<li><code><a href="syntaxref.fm14.html#8865">&lt;jsp:useBean&gt;</a></code>
+<a name="9203"> </a>
+</li><li><code><a href="syntaxref.fm13.html#8856">&lt;jsp:setProperty&gt;</a></code>
+</li></ul>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm9.html">[Prev]</a> <a href="syntaxref.fm11.html">[Next]</a> <a href="Copright.fm.html">[Bottom]</a>
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm10_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm10_files/metrics_group1.js"></script>
+
+</body></html>

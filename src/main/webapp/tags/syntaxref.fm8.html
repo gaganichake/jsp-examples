@@ -1,0 +1,79 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm7.html">[Prev]</a> <a href="syntaxref.fm9.html">[Next]</a>
+<hr><br>
+ 
+<a name="8780"> </a>
+<h2 align="center"> Taglib Directive</h2>
+<p><a name="9053"> </a>
+Defines a tag library and prefix for the custom tags used in the JSP page. 
+</p><a name="9028"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;%@ taglib uri="</code><em>URIToTagLibrary</em><code>"  prefix="</code><em>tagPrefix</em><code>" %&gt;
+</code></pre></blockquote><a name="9374"> </a>
+<h4> Examples</h4>
+<blockquote><pre>&lt;%@ taglib uri="http://www.jspcentral.com/tags" prefix="public" %&gt;
+
+&lt;public:loop&gt;
+.
+.
+&lt;/public:loop&gt;
+</pre></blockquote><a name="9039"> </a>
+<h4> Description</h4>
+<p><a name="10748"> </a>
+The <code>taglib</code> directive declares that the JSP file uses custom tags, names the tag library that defines them, and specifies their tag prefix.
+</p><p><a name="10729"> </a>
+You must use a <code>taglib</code> directive <em>before</em> you use the custom tag in a JSP file. You can use more than one <code>taglib</code> directive in a JSP file, but the prefix defined in each must be unique.
+</p><p><a name="10737"> </a>
+In JSP 1.0, the method of creating portable custom tags that can be 
+recognized by any servlet engine is not yet defined. Some JSP engines 
+might allow you to create custom tags, but those tags might not be 
+recognized by other JSP engines.
+</p><a name="10720"> </a>
+<h4> Attributes</h4>
+<ul><a name="10721"> </a>
+<li><code>uri="</code><em>URIToTagLibrary</em><code>"</code>
+
+<p>
+<a name="10722"> </a>
+The Uniform Resource Identifier (URI) that uniquely names the set of custom tags associated with the 
+named tag prefix. A URI can be any of the following:
+</p><p>
+</p><ul>
+<li><a name="17047"> </a>
+A Uniform Resource Locator (URL), as defined in RFC 2396<code></code>
+
+</li><li><a name="17048"> </a>
+A Uniform Resource Name (URN), as defined in RFC 2396
+
+</li><li><a name="17049"> </a>
+An absolute or relative pathname
+</li></ul>
+
+<p></p><a name="10724"> </a>
+</li><li><code>prefix="</code><em>tagPrefix</em><code>"</code>
+<p><a name="10725"> </a>
+The prefix that precedes the custom tag name, for example, <code>public</code> in <code>&lt;public:loop&gt;</code>. Empty prefixes are illegal. If you are developing or using custom tags, you cannot use the tag prefixes <code>jsp</code>, <code>jspx</code>, <code>java</code>, <code>javax</code>, <code>servlet</code>, <code>sun</code>, and <code>sunw</code>, as they are reserved by Sun Microsystems.
+</p></li></ul><a name="9042"> </a>
+<h4> See Also</h4>
+<ul><a name="10705"> </a>
+<li>RFC 2396, available at <code>http://www.hut.fi/u/jkorpela/rfc/2396/full.html</code>
+</li></ul>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm7.html">[Prev]</a> <a href="syntaxref.fm9.html">[Next]</a>
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm8_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm8_files/metrics_group1.js"></script>
+
+</body></html>

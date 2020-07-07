@@ -1,0 +1,77 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm4.html">[Prev]</a> <a href="syntaxref.fm6.html">[Next]</a>
+<hr><br>
+ 
+<a name="10996"> </a>
+<h2 align="center"> Scriptlet</h2>
+<p><a name="10997"> </a>
+Contains a code fragment valid in the page scripting language.
+</p><a name="10998"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;% </code><em>code fragment</em><code> %&gt;
+</code></pre></blockquote><a name="16389"> </a>
+<h4> Examples</h4>
+<blockquote><pre><strong>&lt;%
+	String name = null;
+	if (request.getParameter("name") == null) {
+%&gt;
+</strong>
+&lt;%@ include file="error.html" %&gt;
+
+<strong>&lt;%
+	} else {
+	foo.setName(request.getParameter("name"));
+	if (foo.getName().equalsIgnoreCase("integra"))
+		name = "acura";
+	if (name.equalsIgnoreCase( "acura" )) {
+%</strong><strong>&gt;
+</strong></pre></blockquote><a name="11059"> </a>
+<h4> Description</h4>
+<p><a name="15996"> </a>
+A scriptlet can contain any number of language statements, variable or 
+method declarations, or expressions that are valid in the page scripting
+ language. 
+</p><p><a name="16710"> </a>
+Within scriptlet tags, you can do any of the following:
+</p><ul><a name="16712"> </a>
+<li>Declare variables or methods to use later in the file (see also <a href="syntaxref.fm3.html#10983">Declaration</a>).
+<a name="16717"> </a>
+</li><li>Write expressions valid in the page scripting language (see also <a href="syntaxref.fm4.html#11258">Expression</a>).
+<a name="16721"> </a>
+</li><li>Use any of the JSP implicit objects or any object declared with a <code>&lt;jsp:useBean&gt;</code> tag.
+<a name="16722"> </a>
+</li><li>Write any other statement valid in the page scripting language 
+(if you use the Java programming language, the statements must conform 
+to the <em>Java Language Specification</em>).
+</li></ul><p><a name="16711"> </a>
+You must write plain text, HTML-encoded text, or other JSP tags <em>outside</em> the scriptlet.
+</p><p><a name="11056"> </a>
+Scriptlets are executed at request time, when the JSP engine processes 
+the client request. If the scriptlet produces output, the output is 
+stored in the <code>out</code> object, from which you can display it. 
+</p><a name="11007"> </a>
+<h4> See Also</h4>
+<ul><a name="11011"> </a>
+<li><a href="syntaxref.fm3.html#10983">Declaration</a>
+<a name="11015"> </a>
+</li><li><a href="syntaxref.fm4.html#11258">Expression</a>
+</li></ul>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm4.html">[Prev]</a> <a href="syntaxref.fm6.html">[Next]</a>
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm5_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm5_files/metrics_group1.js"></script>
+
+</body></html>

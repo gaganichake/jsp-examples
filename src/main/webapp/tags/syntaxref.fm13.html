@@ -1,0 +1,160 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title></title>
+<meta name="collection" content="exclude">
+</head>
+<body bgcolor="#ffffff">
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm12.html">[Prev]</a> <a href="syntaxref.fm14.html">[Next]</a>
+<hr><br>
+ 
+<a name="8856"> </a>
+<h2 align="center"> &lt;jsp:setProperty&gt;</h2>
+<p><a name="9866"> </a>
+Sets a property value or values in a Bean.
+</p><a name="9318"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;jsp:setProperty 
+		name="</code><em>beanInstanceName</em><code>"</code>  
+<code>	{	property= "*" |</code> 
+<code>		property="</code><em>propertyName</em><code>"</code> <code>[ param="</code><em>parameterName</em>" ]<code> |
+		property="</code><em>propertyName</em><code>" value="{ </code><em>string</em> <code>| &lt;%= </code><em>expression</em> <code>%&gt; }" 
+	} 
+/&gt;
+</code></pre></blockquote><a name="16463"> </a>
+<h4> Examples</h4>
+<blockquote><pre>&lt;jsp:setProperty name="mybean" property="*" /&gt;
+&lt;jsp:setProperty name="mybean" property="username" /&gt;
+&lt;jsp:setProperty name="mybean" property="username" value="Steve" /&gt;
+</pre></blockquote><a name="17957"> </a>
+<h4> Description</h4>
+<p><a name="11919"> </a>
+The <code>&lt;jsp:setProperty&gt;</code> tag sets the value of one or more properties in a JavaBean component, using the Bean's <code>set</code> methods. You must use a <code>&lt;jsp:useBean&gt;</code> tag to declare the Bean before you use <code>&lt;jsp:setProperty&gt;</code>. The value of <code>name</code> in <code>&lt;jsp:setProperty&gt;</code> must match the value of <code>id</code> in <code>&lt;jsp:useBean&gt;</code>.
+</p><p><a name="9936"> </a>
+With <code>&lt;jsp:setProperty&gt;</code>, you can set property values in several ways:
+</p><ul><a name="11925"> </a>
+<li>By passing all of the values in the user's request (stored as parameters in the <code>request</code> object) to matching properties in the Bean
+<a name="17411"> </a>
+</li><li>By passing a specific value in the <code>request</code> object to a matching property or a property of a different name in the Bean
+<a name="11927"> </a>
+</li><li>By explicitly setting a Bean property to a value specified as a <code>String</code> or the result of an expression
+</li></ul><p><a name="17620"> </a>
+Each method of setting property values has its own syntax, as described in the next section.
+</p><a name="18217"> </a>
+<h4> Attributes and Usage</h4>
+<ul><a name="17612"> </a>
+<li><code>name="</code><em>beanInstanceName</em><code>"</code>
+<p><a name="17613"> </a>
+The name of an instance of a Bean that has already been created or located with a <code>&lt;jsp:useBean&gt;</code> tag. The value of <code>name</code> must match the value of <code>id</code> in <code>&lt;jsp:useBean&gt;</code>. The <code>&lt;jsp:useBean&gt;</code> tag must appear before <code>&lt;jsp:setProperty&gt;</code> in the same JSP file.
+</p><a name="9918"> </a>
+</li><li><code>property="*"</code>
+<p><a name="17640"> </a>
+Stores all of the values in the <code>request</code> object parameters 
+(called request parameters) in matching Bean properties. The property 
+names in the Bean must match the request parameters. The parameter names
+ usually come from the elements of an HTML form, and the values come 
+from the data the user enters.
+</p><p><a name="17448"> </a>
+The values of the request parameters are always of type <code>String</code>. The <code>String</code>
+ values are converted to other data types so they can be stored in Bean 
+properties. The allowed Bean property types and their conversion methods
+ are shown in <a href="syntaxref.fm13.html#17460">TABLE  1-1</a>. 
+<a name="17460"> </a>
+</p><p>
+<b>How &lt;jsp:setProperty&gt; Converts Strings to Other Values</b>
+
+<table border="3">
+
+<tbody><tr><th><br><p><a name="17464"> </a>
+Property Type
+</p></th><th><br><p><a name="17466"> </a>
+String Is Converted Using
+</p></th></tr>
+<tr><td><br><p><a name="17468"> </a>
+boolean or Boolean
+</p></td><td><br><p><a name="17470"> </a>
+java.lang.Boolean.valueOf(String)
+</p></td></tr>
+<tr><td><br><p><a name="17472"> </a>
+byte or Byte
+</p></td><td><br><p><a name="17474"> </a>
+java.lang.Byte.valueOf(String)
+</p></td></tr>
+<tr><td><br><p><a name="17476"> </a>
+char or Character
+</p></td><td><br><p><a name="17478"> </a>
+java.lang.Character.valueOf(String)
+</p></td></tr>
+<tr><td><br><p><a name="17480"> </a>
+double or Double
+</p></td><td><br><p><a name="17482"> </a>
+java.lang.Double.valueOf(String)
+</p></td></tr>
+<tr><td><br><p><a name="17484"> </a>
+integer or Integer
+</p></td><td><br><p><a name="17486"> </a>
+java.lang.Integer.valueOf(String)
+</p></td></tr>
+<tr><td><br><p><a name="17488"> </a>
+float or Float
+</p></td><td><br><p><a name="17490"> </a>
+java.lang.Float.valueOf(String)
+</p></td></tr>
+<tr><td><br><p><a name="17492"> </a>
+long or Long
+</p></td><td><br><p><a name="17494"> </a>
+java.lang.Long.valueOf(String)
+</p></td></tr>
+
+</tbody></table>
+
+<table>
+<tbody><tr><td>
+</td></tr></tbody></table>
+
+</p><p><a name="9965"> </a>
+You can also use <code>&lt;jsp:setProperty&gt;</code> to set the value of an indexed property in a Bean. The indexed property must have one of the types shown in <a href="syntaxref.fm13.html#17460">TABLE  1-1</a>,
+ and the request value assigned to it must be an array of the same type.
+ The array elements are converted using the conversion methods shown in <a href="syntaxref.fm13.html#17460">TABLE  1-1</a>.
+</p><p><a name="17509"> </a>
+If a request parameter has an empty or null value, the corresponding 
+Bean property is not set. Likewise, if the Bean has a property that does
+ not have a matching request parameter, the property value is not set.
+</p><a name="9919"> </a>
+</li><li><code>property="</code><em>propertyName</em><code>" [ param="</code><em>parameterName</em><code>" ]</code>
+<p><a name="9934"> </a>
+Sets one Bean property to the value of one request parameter. The 
+request parameter can have a different name than the Bean property, and 
+if so, you must specify <code>param</code>. If the Bean property and request parameter have the same name, you can omit <code>param</code>. 
+</p><p><a name="17653"> </a>
+If the parameter has an empty or null value, the corresponding Bean property is not set.
+</p><p><a name="17654"> </a>
+You cannot use both the <code>param</code> and <code>value</code> attributes in a <code>&lt;jsp:setProperty&gt;</code> tag.
+</p><a name="9920"> </a>
+</li><li><code>property="</code><em>propertyName</em><code>" value="{ </code><em>string</em><code> | &lt;%= </code><em>expression</em><code> %&gt; }"</code>
+<p><a name="9935"> </a>
+Sets one Bean property to a specific value. The value can be a <code>String</code> or an <a href="syntaxref.fm4.html#11258">Expression</a>. If you use a <code>String</code>, it is converted to the Bean property's data type, according to the conversion rules shown above in <a href="syntaxref.fm13.html#17460">TABLE  1-1</a>. If you use an expression, the data type of the value of the expression must match the data type of the Bean property.
+</p><p><a name="10088"> </a>
+If the parameter has an empty or null value, the corresponding Bean property is not set.
+</p><p><a name="17657"> </a>
+You cannot use both the <code>param</code> and <code>value</code> attributes in a <code>&lt;jsp:setProperty&gt;</code> tag.
+</p></li></ul><a name="9329"> </a>
+<h4> See Also</h4>
+<ul><a name="9330"> </a>
+<li><code><a href="syntaxref.fm14.html#8865">&lt;jsp:useBean&gt;</a></code>
+<a name="9331"> </a>
+</li><li><code><a href="syntaxref.fm10.html#8820">&lt;jsp:getProperty&gt;</a></code>
+</li></ul>
+<hr><br>
+ 
+<a href="tags.html">[Top]</a> <a href="syntaxref.fm12.html">[Prev]</a> <a href="syntaxref.fm14.html">[Next]</a>
+<hr><br>
+
+
+
+<i>Copyright  © 1999, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+<script language="JavaScript" src="syntaxref.fm13_files/s_code_remote.js"></script><script language="JavaScript" src="syntaxref.fm13_files/metrics_group1.js"></script>
+
+</body></html>
